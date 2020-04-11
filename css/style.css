@@ -1,0 +1,135 @@
+.block {
+    background-color: black;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.block:nth-child(1) {
+    border-right: 1px solid yellow;
+    border-bottom: 1px solid yellow;
+}
+
+.block:nth-child(2) {
+    border-bottom: 1px solid yellow;
+}
+
+.block:nth-child(3) {
+    border-left: 1px solid yellow;
+    border-bottom: 1px solid yellow;
+}
+
+.board {
+    width: 100%;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 40px auto;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 18%;
+}
+
+#canvas {
+    position: absolute;
+    left: 25%;
+    top: 0px;
+}
+
+.row {
+    width: 600px;
+    margin: 0px auto;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 35px !important;
+}
+
+#pop-up {
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    top: -400px;
+    left: 10%;
+    z-index: 1;
+}
+
+#pop-up .container1 {
+    background: #363636;
+    padding: 40px;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 180px;
+}
+
+.cross {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #555;
+    color: #ddd;
+    width: 20px;
+    height: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.cross:hover i {
+    color: red;
+}
+
+/*--------------------------------------------------------Animation for Victory----------------------------------------------------*/
+
+.animate {
+    animation: drop 0.5s ease forwards;
+}
+
+.animateAvatar {
+    position: absolute!important;
+    left: 10%;
+    top:50%;
+    animation: moveAvatar 2s 0.5s linear forwards infinite alternate;
+}
+
+@keyframes drop {
+    0% {
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateY(700px);
+    }
+
+    100% {
+        transform: translateY(500px);
+        opacity: 1;
+    }
+}
+
+@keyframes moveAvatar {
+    0% {
+        opacity: 1;
+        left: 10%;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        left: 85%;
+    }
+}
