@@ -157,6 +157,8 @@ function checkMove(x, y, turn) {
         return 0;
 }
 
+var count=0;
+
 function show(x, y, pos) {
     if (flag[y][x].status == 0) {
         if (turn == 1) {
@@ -181,5 +183,13 @@ function show(x, y, pos) {
             turn = 1;
             avatar = p1;
         }
+    }
+    count++;
+    if(count==9){
+        document.getElementById("vic").style.display="none";
+        document.getElementById("res").innerHTML="Draw";
+        document.getElementById("pop-up").classList.add("animate");
+        document.getElementById("pop-up").style.zIndex="4";
+        document.getElementById("vic").classList.add("animateAvatar");
     }
 }

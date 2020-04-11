@@ -11,12 +11,12 @@
     border-bottom: 2px solid yellow;
 }
 
-.block:nth-child(2) {
+.block:nth-child(3) {
+    border-left: 2px solid yellow;
     border-bottom: 2px solid yellow;
 }
 
-.block:nth-child(3) {
-    border-left: 2px solid yellow;
+.block:nth-child(2) {
     border-bottom: 2px solid yellow;
 }
 
