@@ -16,9 +16,9 @@ document.getElementById("launch").onclick = function () {
           document.querySelectorAll(".block").forEach(element => {
             console.log(element);
             element.setAttribute("style", `background-color:yellow;`);
-            $(".block:nth-child(1)").css({"border-right":"2px solid yellow","border-bottom":"2px solid yellow"});
-            $(".block:nth-child(2)").css({"border-bottom": "2px solid yellow"});
-            $(".block:nth-child(3)").css({"border-left": "2px solid yellow","border-bottom": "2px solid yellow"});
+            $(".block:nth-child(1)").css({"border-right":"2px solid white","border-bottom":"2px solid white"});
+            $(".block:nth-child(2)").css({"border-bottom": "2px solid white"});
+            $(".block:nth-child(3)").css({"border-left": "2px solid white","border-bottom": "2px solid white"});
           });
         }
         else if(l1=="layout2"){
@@ -34,9 +34,9 @@ document.getElementById("launch").onclick = function () {
           document.querySelectorAll(".block").forEach(element => {
             console.log(element);
             element.setAttribute("style", `background-color:red;`);
-            $(".block:nth-child(1)").css({"border-right":"2px solid white","border-bottom":"2px solid white"});
-            $(".block:nth-child(2)").css({"border-bottom": "2px solid white"});
-            $(".block:nth-child(3)").css({"border-left": "2px solid white","border-bottom": "2px solid white"});
+            $(".block:nth-child(1)").css({"border-right":"2px solid yellow","border-bottom":"2px solid yellow"});
+            $(".block:nth-child(2)").css({"border-bottom": "2px solid yellow"});
+            $(".block:nth-child(3)").css({"border-left": "2px solid yellow","border-bottom": "2px solid yellow"});
           });
         }
         else{

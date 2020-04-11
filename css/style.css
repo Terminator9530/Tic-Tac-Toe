@@ -37,9 +37,9 @@
 }
 
 #canvas {
-    position: absolute;
-    left: 25%;
-    top: 0px;
+    position: relative;
+    top: -600px;
+    background-color: black;
 }
 
 .row {
