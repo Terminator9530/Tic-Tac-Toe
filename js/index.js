@@ -164,7 +164,7 @@ function show(x, y, pos) {
         } else {
             document.getElementById("player").innerHTML = "Player 1 Turn";
         }
-        document.querySelectorAll(".block")[pos].innerHTML = `<img src='./img/${avatar}'>`;
+        document.querySelectorAll(".block")[pos].innerHTML = `<img class="player" src='./img/${avatar}'>`;
         flag[y][x].status = 1;
         flag[y][x].avatar = turn;
         if (checkMove(x, y, turn)){
@@ -176,10 +176,10 @@ function show(x, y, pos) {
         }
         if (turn == 1) {
             turn = 2;
-            avatar = "063-batman.png";
+            avatar = p2;
         } else {
             turn = 1;
-            avatar = "066-Spiderman.png";
+            avatar = p1;
         }
     }
 }

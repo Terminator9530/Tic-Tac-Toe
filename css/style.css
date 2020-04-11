@@ -7,17 +7,17 @@
 }
 
 .block:nth-child(1) {
-    border-right: 1px solid yellow;
-    border-bottom: 1px solid yellow;
+    border-right: 2px solid yellow;
+    border-bottom: 2px solid yellow;
 }
 
 .block:nth-child(2) {
-    border-bottom: 1px solid yellow;
+    border-bottom: 2px solid yellow;
 }
 
 .block:nth-child(3) {
-    border-left: 1px solid yellow;
-    border-bottom: 1px solid yellow;
+    border-left: 2px solid yellow;
+    border-bottom: 2px solid yellow;
 }
 
 .board {
@@ -29,7 +29,7 @@
     position: relative;
 }
 
-img {
+.player {
     width: 100px;
     height: 100px;
     position: relative;
