@@ -174,6 +174,7 @@ function show(x, y, pos) {
             document.getElementById("pop-up").classList.add("animate");
             document.getElementById("pop-up").style.zIndex="4";
             document.getElementById("vic").classList.add("animateAvatar");
+            document.getElementById("glow").classList.add("glow-green");
             return ;
         }
         if (turn == 1) {
@@ -186,6 +187,7 @@ function show(x, y, pos) {
     }
     count++;
     if(count==9){
+        document.getElementById("glow").classList.add("glow-blue");
         document.getElementById("vic").style.display="none";
         document.getElementById("res").innerHTML="Draw";
         document.getElementById("pop-up").classList.add("animate");

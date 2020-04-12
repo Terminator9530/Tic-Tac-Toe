@@ -13,40 +13,56 @@ document.getElementById("launch").onclick = function () {
         avatar=p1;
         $('#exampleModalCenter').modal('hide');
         if(l1=="layout1"){
-          document.querySelectorAll(".block").forEach(element => {
-            console.log(element);
-            element.setAttribute("style", `background-color:yellow;`);
-            $(".block:nth-child(1)").css({"border-right":"2px solid white","border-bottom":"2px solid white"});
-            $(".block:nth-child(2)").css({"border-bottom": "2px solid white"});
-            $(".block:nth-child(3)").css({"border-left": "2px solid white","border-bottom": "2px solid white"});
-          });
+          for(i=0;i<document.querySelectorAll(".block").length;i++)
+          document.querySelectorAll(".block")[i].setAttribute("style", `background-color:yellow;`);
+
+          $(".row:nth-child(1) .block:nth-child(1)").css({"border-right":"2px solid white","border-bottom":"2px solid white"});
+          $(".row:nth-child(1) .block:nth-child(2)").css({"border-bottom":"2px solid white"});
+          $(".row:nth-child(1) .block:nth-child(3)").css({"border-left":"2px solid white","border-bottom":"2px solid white"});
+          $(".row:nth-child(2) .block:nth-child(1)").css({"border-right":"2px solid white"});
+          $(".row:nth-child(2) .block:nth-child(3)").css({"border-left":"2px solid white"});
+          $(".row:nth-child(3) .block:nth-child(1)").css({"border-right":"2px solid white","border-top":"2px solid white"});
+          $(".row:nth-child(3) .block:nth-child(2)").css({"border-top":"2px solid white"});
+          $(".row:nth-child(3) .block:nth-child(3)").css({"border-left":"2px solid white","border-top":"2px solid white"});
         }
         else if(l1=="layout2"){
-          document.querySelectorAll(".block").forEach(element => {
-            console.log(element);
-            element.setAttribute("style", `background-color:blue;`);
-            $(".block:nth-child(1)").css({"border-right":"2px solid white","border-bottom":"2px solid white"});
-            $(".block:nth-child(2)").css({"border-bottom": "2px solid white"});
-            $(".block:nth-child(3)").css({"border-left": "2px solid white","border-bottom": "2px solid white"});
-          });
+         for(i=0;i<document.querySelectorAll(".block").length;i++)
+          document.querySelectorAll(".block")[i].setAttribute("style", `background-color:blue;`);
+          
+          $(".row:nth-child(1) .block:nth-child(1)").css({"border-right":"2px solid white","border-bottom":"2px solid white"});
+          $(".row:nth-child(1) .block:nth-child(2)").css({"border-bottom":"2px solid white"});
+          $(".row:nth-child(1) .block:nth-child(3)").css({"border-left":"2px solid white","border-bottom":"2px solid white"});
+          $(".row:nth-child(2) .block:nth-child(1)").css({"border-right":"2px solid white"});
+          $(".row:nth-child(2) .block:nth-child(3)").css({"border-left":"2px solid white"});
+          $(".row:nth-child(3) .block:nth-child(1)").css({"border-right":"2px solid white","border-top":"2px solid white"});
+          $(".row:nth-child(3) .block:nth-child(2)").css({"border-top":"2px solid white"});
+          $(".row:nth-child(3) .block:nth-child(3)").css({"border-left":"2px solid white","border-top":"2px solid white"});
         }
         else if(l1=="layout3"){
-          document.querySelectorAll(".block").forEach(element => {
-            console.log(element);
-            element.setAttribute("style", `background-color:red;`);
-            $(".block:nth-child(1)").css({"border-right":"2px solid yellow","border-bottom":"2px solid yellow"});
-            $(".block:nth-child(2)").css({"border-bottom": "2px solid yellow"});
-            $(".block:nth-child(3)").css({"border-left": "2px solid yellow","border-bottom": "2px solid yellow"});
-          });
+          for(i=0;i<document.querySelectorAll(".block").length;i++)
+          document.querySelectorAll(".block")[i].setAttribute("style", `background-color:red;`);
+          
+          $(".row:nth-child(1) .block:nth-child(1)").css({"border-right":"2px solid yellow","border-bottom":"2px solid yellow"});
+          $(".row:nth-child(1) .block:nth-child(2)").css({"border-bottom":"2px solid yellow"});
+          $(".row:nth-child(1) .block:nth-child(3)").css({"border-left":"2px solid yellow","border-bottom":"2px solid yellow"});
+          $(".row:nth-child(2) .block:nth-child(1)").css({"border-right":"2px solid yellow"});
+          $(".row:nth-child(2) .block:nth-child(3)").css({"border-left":"2px solid yellow"});
+          $(".row:nth-child(3) .block:nth-child(1)").css({"border-right":"2px solid yellow","border-top":"2px solid yellow"});
+          $(".row:nth-child(3) .block:nth-child(2)").css({"border-top":"2px solid yellow"});
+          $(".row:nth-child(3) .block:nth-child(3)").css({"border-left":"2px solid yellow","border-top":"2px solid yellow"});
         }
         else{
-          document.querySelectorAll(".block").forEach(element => {
-            console.log(element);
-            element.setAttribute("style", `background-color:black;`);
-            $(".block:nth-child(1)").css({"border-right":"2px solid yellow","border-bottom":"2px solid yellow"});
-            $(".block:nth-child(2)").css({"border-bottom": "2px solid yellow"});
-            $(".block:nth-child(3)").css({"border-left": "2px solid yellow","border-bottom": "2px solid yellow"});
-          });
+          for(i=0;i<document.querySelectorAll(".block").length;i++)
+          document.querySelectorAll(".block")[i].setAttribute("style", `background-color:black;`);
+          
+          $(".row:nth-child(1) .block:nth-child(1)").css({"border-right":"2px solid yellow","border-bottom":"2px solid yellow"});
+          $(".row:nth-child(1) .block:nth-child(2)").css({"border-bottom":"2px solid yellow"});
+          $(".row:nth-child(1) .block:nth-child(3)").css({"border-left":"2px solid yellow","border-bottom":"2px solid yellow"});
+          $(".row:nth-child(2) .block:nth-child(1)").css({"border-right":"2px solid yellow"});
+          $(".row:nth-child(2) .block:nth-child(3)").css({"border-left":"2px solid yellow"});
+          $(".row:nth-child(3) .block:nth-child(1)").css({"border-right":"2px solid yellow","border-top":"2px solid yellow"});
+          $(".row:nth-child(3) .block:nth-child(2)").css({"border-top":"2px solid yellow"});
+          $(".row:nth-child(3) .block:nth-child(3)").css({"border-left":"2px solid yellow","border-top":"2px solid yellow"});
         }
         console.log(p1, p2, l1);
     } else
