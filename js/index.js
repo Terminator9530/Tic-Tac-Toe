@@ -37,7 +37,7 @@ var turn = 1,
 
 const allEqual = arr => arr.every(v => ((v === arr[0]) && (v !== 0)))
 
-function hide(){
+function hide() {
     window.location.reload(true);
 }
 
@@ -157,7 +157,7 @@ function checkMove(x, y, turn) {
         return 0;
 }
 
-var count=0;
+var count = 0;
 
 function show(x, y, pos) {
     if (flag[y][x].status == 0) {
@@ -169,13 +169,13 @@ function show(x, y, pos) {
         document.querySelectorAll(".block")[pos].innerHTML = `<img class="player" src='./img/${avatar}'>`;
         flag[y][x].status = 1;
         flag[y][x].avatar = turn;
-        if (checkMove(x, y, turn)){
-            document.getElementById("vic").src=`./img/${avatar}`;
+        if (checkMove(x, y, turn)) {
+            document.getElementById("vic").src = `./img/${avatar}`;
             document.getElementById("pop-up").classList.add("animate");
-            document.getElementById("pop-up").style.zIndex="4";
+            document.getElementById("pop-up").style.zIndex = "4";
             document.getElementById("vic").classList.add("animateAvatar");
             document.getElementById("glow").classList.add("glow-green");
-            return ;
+            return;
         }
         if (turn == 1) {
             turn = 2;
@@ -186,12 +186,12 @@ function show(x, y, pos) {
         }
     }
     count++;
-    if(count==9){
+    if (count == 9) {
         document.getElementById("glow").classList.add("glow-blue");
-        document.getElementById("vic").style.display="none";
-        document.getElementById("res").innerHTML="Draw";
+        document.getElementById("vic").style.display = "none";
+        document.getElementById("res").innerHTML = "Draw";
         document.getElementById("pop-up").classList.add("animate");
-        document.getElementById("pop-up").style.zIndex="4";
+        document.getElementById("pop-up").style.zIndex = "4";
         document.getElementById("vic").classList.add("animateAvatar");
     }
 }

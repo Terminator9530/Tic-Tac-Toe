@@ -21,6 +21,7 @@ body {
 #player {
     margin-top: 20px;
     color: white;
+    display: none;
 }
 
 .player {
