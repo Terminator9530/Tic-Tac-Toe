@@ -9,6 +9,10 @@ body {
     background-color: rgb(39, 39, 37);
 }
 
+.radioDisabled{
+    cursor: no-drop !important;
+}
+
 .board {
     width: 100%;
     z-index: 2;
