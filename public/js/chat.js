@@ -1,4 +1,4 @@
-var socket = io.connect(window.location.hostname);
+var socket = io.connect(`http://${window.location.hostname}:${window.location.port}/`);
 
 var player1Name = document.getElementById("player1Name");
 var player1Ready = document.getElementById("player1Ready");
