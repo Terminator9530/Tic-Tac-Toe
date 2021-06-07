@@ -1,4 +1,4 @@
-var socket = io.connect(window.location.hostname);
+var socket = io.connect(`https://${window.location.hostname}:${window.location.port}/`);
 
  $(function() {
     $( "#glow" ).draggable();
