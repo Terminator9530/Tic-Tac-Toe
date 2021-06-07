@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:4000');
+var socket = io.connect('https://tictactoe0306.herokuapp.com');
 
 var player1Name = document.getElementById("player1Name");
 var player1Ready = document.getElementById("player1Ready");
