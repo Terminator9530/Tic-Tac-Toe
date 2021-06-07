@@ -1,11 +1,14 @@
 var express = require('express');
 var socket = require('socket.io');
+const dotenv = require('dotenv');
 
 var app = express();
 
 app.use(express.static("../public"));
 
-var server = app.listen(4000,function(){
+dotenv.config();
+
+var server = app.listen(process.env.PORT || 4000,function(){
     console.log("Server Started at port 4000");
 });
 
