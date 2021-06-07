@@ -2,7 +2,7 @@ function start() {
   $('#exampleModalCenter').modal('show');
 }
 
-var socket = io.connect('http://localhost:4000');
+var socket = io.connect(window.location.hostname);
 
 socket.on('launch',function(playerInfo){
   document.getElementById("player").style.display = "block";
