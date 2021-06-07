@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 
 var app = express();
 
-app.use(express.static("../public"));
+app.use(express.static("public"));
 
 dotenv.config();
 
