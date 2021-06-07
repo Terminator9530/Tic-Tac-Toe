@@ -2,17 +2,13 @@ function start() {
   $('#exampleModalCenter').modal('show');
 }
 
-var p1, p2, l1;
+var socket = io.connect('http://localhost:4000');
 
-document.getElementById("launch").onclick = function () {
-  p1 = document.getElementById("themeLayout").p1.value;
-  p2 = document.getElementById("themeLayout").p2.value;
-  l1 = document.getElementById("themeLayout").l1.value;
-  if (p1 && p2 && l1) {
-    document.getElementById("player").style.display = "block";
-    avatar = p1;
+socket.on('launch',function(playerInfo){
+  document.getElementById("player").style.display = "block";
+    avatar = playerInfo.player1Name;
     $('#exampleModalCenter').modal('hide');
-    if (l1 == "layout1") {
+    if (playerInfo.layout == "layout1") {
       for (i = 0; i < document.querySelectorAll(".block").length; i++)
         document.querySelectorAll(".block")[i].setAttribute("style", `background-color:yellow;`);
 
@@ -44,7 +40,7 @@ document.getElementById("launch").onclick = function () {
         "border-left": "2px solid white",
         "border-top": "2px solid white"
       });
-    } else if (l1 == "layout2") {
+    } else if (playerInfo.layout == "layout2") {
       for (i = 0; i < document.querySelectorAll(".block").length; i++)
         document.querySelectorAll(".block")[i].setAttribute("style", `background-color:blue;`);
 
@@ -76,7 +72,7 @@ document.getElementById("launch").onclick = function () {
         "border-left": "2px solid white",
         "border-top": "2px solid white"
       });
-    } else if (l1 == "layout3") {
+    } else if (playerInfo.layout == "layout3") {
       for (i = 0; i < document.querySelectorAll(".block").length; i++)
         document.querySelectorAll(".block")[i].setAttribute("style", `background-color:red;`);
 
@@ -141,7 +137,15 @@ document.getElementById("launch").onclick = function () {
         "border-top": "2px solid yellow"
       });
     }
-    console.log(p1, p2, l1);
+});
+
+document.getElementById("launch").onclick = function () {
+  if (gameInfo.character1 && gameInfo.character2 && gameInfo.layout) {
+    // console.log(gameInfo);
+    socket.emit('launch',gameInfo);
+    gameInfo.flag = flag;
+    gameInfo.turn = turn;
+    socket.emit('gameplay',gameInfo);
   } else
     document.getElementById("showAlert").innerHTML = ` <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         Please Select Player 1, Player 2 or Theme

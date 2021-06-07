@@ -17,4 +17,20 @@ io.on('connection',function(socket){
     socket.on('player1Name',function(playerInfo){
         socket.broadcast.emit('player1Name',playerInfo);
     });
+
+    socket.on('player2Name',function(playerInfo){
+        socket.broadcast.emit('player2Name',playerInfo);
+    });
+
+    socket.on('launch',function(playerInfo){
+        io.sockets.emit('launch',playerInfo)
+    });
+
+    socket.on('gameplay',function(playerInfo){
+        io.sockets.emit('gameplay',playerInfo)
+    });
+
+    socket.on('playermove',function(playerInfo){
+        io.sockets.emit('playermove',playerInfo)
+    });
 });
