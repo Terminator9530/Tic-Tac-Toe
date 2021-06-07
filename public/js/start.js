@@ -2,11 +2,11 @@ function start() {
   $('#exampleModalCenter').modal('show');
 }
 
-var socket = io.connect(`https://${window.location.hostname}:${window.location.port}/`);
+var socket = io.connect(`${window.location.protocol}//${window.location.hostname}:${window.location.port}/`);
 
 socket.on('launch',function(playerInfo){
   document.getElementById("player").style.display = "block";
-    avatar = playerInfo.player1Name;
+    avatar = playerInfo.character1;
     $('#exampleModalCenter').modal('hide');
     if (playerInfo.layout == "layout1") {
       for (i = 0; i < document.querySelectorAll(".block").length; i++)
