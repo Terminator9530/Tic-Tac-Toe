@@ -36,4 +36,14 @@ io.on('connection',function(socket){
     socket.on('playermove',function(playerInfo){
         io.sockets.emit('playermove',playerInfo)
     });
+
+    socket.on('disconnect',function(playerInfo){
+        console.log('user disconnected');
+        io.sockets.emit('disconnected',playerInfo);
+    });
+
+    socket.on('connected',function(){
+        console.log('user connected');
+        io.sockets.emit('connected');
+    });
 });

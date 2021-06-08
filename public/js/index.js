@@ -1,6 +1,6 @@
 var socket = io.connect(`${window.location.protocol}//${window.location.hostname}:${window.location.port}/`);
 
- $(function() {
+$(function() {
     $( "#glow" ).draggable();
 });
 
@@ -123,7 +123,6 @@ function checkMove(x, y, turn,gameInfo) {
             x2: 0,
             y2: 600
         });
-    //console.log(temp);
     temp.forEach(element => {
         var tempFlag = [];
         for (i = 0; i < 3; i++) {
@@ -144,10 +143,8 @@ function checkMove(x, y, turn,gameInfo) {
             if (element.line == "y=-x+2")
                 tempFlag.push(gameInfo.flag[-i + 2][i].avatar);
         }
-        //console.log(tempFlag, allEqual(tempFlag));
         if (allEqual(tempFlag)) {
             canvas.style.zIndex = "3";
-            console.log(element);
             valid = 1;
             element.success = 1;
             ctx.beginPath();
@@ -173,7 +170,6 @@ function hide() {
 var count = 0;
 
 socket.on('playermove',function(gameInfo){
-    console.log("Player Info : " + gameInfo);
     if (gameInfo.flag[gameInfo.y][gameInfo.x].status == 0) {
         if (gameInfo.turn == 1) {
             document.getElementById("player").innerHTML = `${gameInfo.player2Name} Turn`;
@@ -184,11 +180,7 @@ socket.on('playermove',function(gameInfo){
         gameInfo.flag[gameInfo.y][gameInfo.x].status = 1;
         gameInfo.flag[gameInfo.y][gameInfo.x].avatar = gameInfo.turn;
         if (checkMove(gameInfo.x, gameInfo.y, gameInfo.turn,gameInfo)) {
-            document.getElementById("vic").src = `./img/${avatar}`;
-            document.getElementById("pop-up").classList.add("animate");
-            document.getElementById("pop-up").style.zIndex = "4";
-            document.getElementById("vic").classList.add("animateAvatar");
-            document.getElementById("glow").classList.add("glow-green");
+            victoryModal(avatar);
             return;
         }
         if (gameInfo.turn == 1) {
@@ -201,12 +193,7 @@ socket.on('playermove',function(gameInfo){
     }
     gameInfo.count++;
     if (gameInfo.count == 9) {
-        document.getElementById("glow").classList.add("glow-blue");
-        document.getElementById("vic").style.display = "none";
-        document.getElementById("res").innerHTML = "Draw";
-        document.getElementById("pop-up").classList.add("animate");
-        document.getElementById("pop-up").style.zIndex = "4";
-        document.getElementById("vic").classList.add("animateAvatar");
+        drawModal();
     }
     flag = gameInfo.flag;
     turn = gameInfo.turn;
@@ -220,6 +207,5 @@ function show(x, y, pos) {
     gameInfo.count = count;
     gameInfo.flag = flag;
     gameInfo.turn = turn;
-    console.log("emitted player info");
     socket.emit('playermove',gameInfo);
 }

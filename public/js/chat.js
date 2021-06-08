@@ -21,7 +21,6 @@ var gameInfo = {
 };
 
 socket.on('player1Name',function(playerInfo){
-    //console.log(playerInfo);
     let isSelected = true;
     gameInfo.character1 = playerInfo.selectedCharacter;
     if(playerInfo.selectedCharacter == "066-Spiderman.png"){
@@ -37,7 +36,6 @@ socket.on('player1Name',function(playerInfo){
         character1[3].checked = "true";
     } 
     else {
-        //console.log("Player 1 Please Select character");
         isSelected = false;
     }
 
@@ -83,14 +81,8 @@ player1Ready.addEventListener('click',function(){
         selectedCharacter : character1.value,
         layout : layout.value
     });
-    //console.log(character1);
     if(character1.value == "" || layout.value == ""){
-        document.getElementById("showAlert").innerHTML = ` <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        Player1 Please Select Character or Layout
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>`;
+        document.getElementById("showAlert").innerHTML = showErrorMessage();
     } else {
         if(!isPlayer1Ready){
             //ready
@@ -109,7 +101,6 @@ player1Ready.addEventListener('click',function(){
 });
 
 socket.on('player2Name',function(playerInfo){
-    //console.log(playerInfo);
     let isSelected = true;
     gameInfo.character2 = playerInfo.selectedCharacter;
     if(playerInfo.selectedCharacter == "016-lego.png"){
@@ -125,7 +116,6 @@ socket.on('player2Name',function(playerInfo){
         character2[3].checked = "true";
     } 
     else {
-        //console.log("Player 2 Please Select character");
         isSelected = false;
     }
     gameInfo.layout = playerInfo.layout;
@@ -169,14 +159,8 @@ player2Ready.addEventListener('click',function(){
         selectedCharacter : character2.value,
         layout : layout.value
     });
-    //console.log(character2);
     if(character2.value == "" || layout.value == ""){
-        document.getElementById("showAlert").innerHTML = ` <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        Player2 Please Select Character or Layout
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>`;
+        document.getElementById("showAlert").innerHTML = showErrorMessage();
     } else {
         if(!isPlayer2Ready){
             //ready
@@ -192,4 +176,25 @@ player2Ready.addEventListener('click',function(){
             player2Ready.classList.remove("btn-outline-danger");
         }
     }
+});
+
+var tWrapper = $("#toast-wrapper"), ti = 0;
+socket.on('disconnected',function(playerInfo){
+    tWrapper.append(toast('User Disconnected',1));
+    $(`#t${ti - 1}`).toast({
+        delay: 2000
+    });
+    $(`#t${ti - 1}`).toast('show');
+});
+
+socket.on('connect',function(){
+    socket.emit('connected');
+});
+
+socket.on('connected',function(){
+    tWrapper.append(toast('User Connected',2));
+    $(`#t${ti - 1}`).toast({
+        delay: 2000
+    });
+    $(`#t${ti - 1}`).toast('show');
 });
