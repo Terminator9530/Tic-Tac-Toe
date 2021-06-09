@@ -51,6 +51,7 @@ io.on('connection',function(socket){
         players.count = player.count;
         players.flag = player.flag;
         players.turn = player.turn;
+        players.currPlayerId = socket.id;
         io.sockets.emit('playermove',players);
     });
 

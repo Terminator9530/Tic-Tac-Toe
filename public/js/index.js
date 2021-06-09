@@ -47,6 +47,11 @@ flag = [
 ];
 
 function checkMove(x, y) {
+    // console.log(player.currPlayerId,player.playerDetails[0].id,player.playerDetails[1].id,player.turn);
+    // console.log(!((player.currPlayerId == player.playerDetails[0].id && player.turn == 1) || (player.currPlayerId == player.playerDetails[1].id && player.turn == 2)));
+    if(!((player.currPlayerId == player.playerDetails[0].id && player.turn == 1) || (player.currPlayerId == player.playerDetails[1].id && player.turn == 2))){
+        return -1;
+    }
     var temp = [],
         valid = 0;
     if (y == x)
@@ -141,6 +146,7 @@ function checkMove(x, y) {
             if (element.line == "y=-x+2")
                 tempFlag.push(player.flag[-i + 2][i].avatar);
         }
+        
         if (allEqual(tempFlag)) {
             canvas.style.zIndex = "3";
             valid = 1;
@@ -169,8 +175,24 @@ var count = 0;
 
 socket.on('playermove',function(gameInfo){
     player = gameInfo;
-    console.log(player);
     if (player.flag[player.y][player.x].status == 0) {
+        let checkMoveVal = checkMove(player.x, player.y, player.turn);
+        if(checkMoveVal == -1){
+            let playerName;
+            if(player.turn == 1){
+                playerName = player.playerDetails[0].name;
+            } else {
+                playerName = player.playerDetails[1].name;
+            }
+            tWrapper.append(toast(`${playerName}'s Turn`,1));
+            $(`#t${ti - 1}`).toast({
+                delay: 2000
+            });
+            $(`#t${ti - 1}`).toast('show');
+            console.log(player);
+            return;
+        }
+        console.log(player);
         if (player.turn == 1) {
             document.getElementById("player").innerHTML = `${player.playerDetails[1].name} Turn`;
         } else {
@@ -179,7 +201,7 @@ socket.on('playermove',function(gameInfo){
         document.querySelectorAll(".block")[player.pos].innerHTML = `<img class="player" src='./img/${avatar}'>`;
         player.flag[player.y][player.x].status = 1;
         player.flag[player.y][player.x].avatar = player.turn;
-        if (checkMove(player.x, player.y, player.turn)) {
+        if (checkMove(player.x, player.y) == 1) {
             victoryModal(avatar);
             return;
         }
