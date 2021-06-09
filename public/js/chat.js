@@ -12,54 +12,28 @@ var isPlayer1Ready = false,isPlayer2Ready = false;
 
 var layout = document.getElementById("themeLayout").l1;
 
-var gameInfo = {
-    player1Name : "",
-    player2Name : "",
-    character1 : "",
-    character2 : "",
-    layout : ""
-};
-
 socket.on('player1Name',function(playerInfo){
+    // console.log("Players : ");
+    // console.log(playerInfo);
     let isSelected = true;
-    gameInfo.character1 = playerInfo.selectedCharacter;
-    if(playerInfo.selectedCharacter == "066-Spiderman.png"){
+    if(playerInfo.playerDetails[0].character == "066-Spiderman.png"){
         character1[0].checked = "true";
     }
-    else if(playerInfo.selectedCharacter == "063-batman.png"){
+    else if(playerInfo.playerDetails[0].character == "063-batman.png"){
         character1[1].checked = "true";
     }
-    else if(playerInfo.selectedCharacter == "046-santa claus.png"){
+    else if(playerInfo.playerDetails[0].character == "046-santa claus.png"){
         character1[2].checked = "true";
     }
-    else if(playerInfo.selectedCharacter == "031-clown.png"){
+    else if(playerInfo.playerDetails[0].character == "031-clown.png"){
         character1[3].checked = "true";
     } 
     else {
         isSelected = false;
     }
 
-    gameInfo.layout = playerInfo.layout;
-
-    if(playerInfo.layout == "layout1"){
-        layout[0].checked = true;
-    }
-    else if(playerInfo.layout == "layout2"){
-        layout[1].checked = true;
-    }
-    else if(playerInfo.layout == "layout3"){
-        layout[2].checked = true;
-    }
-    else if(playerInfo.layout == "layout4"){
-        layout[3].checked = true;
-    }
-    else{
-        isSelected = false;
-    }
-
     if(isSelected){
-        player1Name.value = playerInfo.name;
-        gameInfo.player1Name = player1Name.value;
+        player1Name.value = playerInfo.playerDetails[0].name;
         if(!playerInfo.isReady){
             //ready
             player1Ready.innerHTML = "Not Ready";
@@ -101,43 +75,27 @@ player1Ready.addEventListener('click',function(){
 });
 
 socket.on('player2Name',function(playerInfo){
+    // console.log("Players : ");
+    // console.log(playerInfo);
     let isSelected = true;
-    gameInfo.character2 = playerInfo.selectedCharacter;
-    if(playerInfo.selectedCharacter == "016-lego.png"){
+    if(playerInfo.playerDetails[1].character == "016-lego.png"){
         character2[0].checked = "true";
     }
-    else if(playerInfo.selectedCharacter == "030-scuba diver.png"){
+    else if(playerInfo.playerDetails[1].character == "030-scuba diver.png"){
         character2[1].checked = "true";
     }
-    else if(playerInfo.selectedCharacter == "064-superman.png"){
+    else if(playerInfo.playerDetails[1].character == "064-superman.png"){
         character2[2].checked = "true";
     }
-    else if(playerInfo.selectedCharacter == "070-deadpool.png"){
+    else if(playerInfo.playerDetails[1].character == "070-deadpool.png"){
         character2[3].checked = "true";
     } 
     else {
         isSelected = false;
     }
-    gameInfo.layout = playerInfo.layout;
-    if(playerInfo.layout == "layout1"){
-        layout[0].checked = true;
-    }
-    else if(playerInfo.layout == "layout2"){
-        layout[1].checked = true;
-    }
-    else if(playerInfo.layout == "layout3"){
-        layout[2].checked = true;
-    }
-    else if(playerInfo.layout == "layout4"){
-        layout[3].checked = true;
-    }
-    else{
-        isSelected = false;
-    }
 
     if(isSelected){
-        player2Name.value = playerInfo.name;
-        gameInfo.player2Name = player2Name.value;
+        player2Name.value = playerInfo.playerDetails[1].name;
         if(!playerInfo.isReady){
             //ready
             player2Ready.innerHTML = "Not Ready";

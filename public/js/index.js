@@ -8,8 +8,8 @@ var player,avatar;
 
 socket.on('gameplay',function(playerInfo){
     player = playerInfo;
-    avatar = player.character1;
-    document.getElementById("player").innerHTML = `${player.player1Name} Turn`;
+    avatar = player.playerDetails[0].character;
+    document.getElementById("player").innerHTML = `${player.playerDetails[0].name} Turn`;
 });
 
 var canvas = document.getElementById("canvas");
@@ -48,7 +48,7 @@ flag = [
     }]
 ];
 
-function checkMove(x, y, turn,gameInfo) {
+function checkMove(x, y) {
     var temp = [],
         valid = 0;
     if (y == x)
@@ -127,21 +127,21 @@ function checkMove(x, y, turn,gameInfo) {
         var tempFlag = [];
         for (i = 0; i < 3; i++) {
             if (element.line == "y=x")
-                tempFlag.push(gameInfo.flag[i][i].avatar);
+                tempFlag.push(player.flag[i][i].avatar);
             if (element.line == "x=0")
-                tempFlag.push(gameInfo.flag[i][0].avatar);
+                tempFlag.push(player.flag[i][0].avatar);
             if (element.line == "x=1")
-                tempFlag.push(gameInfo.flag[i][1].avatar);
+                tempFlag.push(player.flag[i][1].avatar);
             if (element.line == "x=2")
-                tempFlag.push(gameInfo.flag[i][2].avatar);
+                tempFlag.push(player.flag[i][2].avatar);
             if (element.line == "y=0")
-                tempFlag.push(gameInfo.flag[0][i].avatar);
+                tempFlag.push(player.flag[0][i].avatar);
             if (element.line == "y=1")
-                tempFlag.push(gameInfo.flag[1][i].avatar);
+                tempFlag.push(player.flag[1][i].avatar);
             if (element.line == "y=2")
-                tempFlag.push(gameInfo.flag[2][i].avatar);
+                tempFlag.push(player.flag[2][i].avatar);
             if (element.line == "y=-x+2")
-                tempFlag.push(gameInfo.flag[-i + 2][i].avatar);
+                tempFlag.push(player.flag[-i + 2][i].avatar);
         }
         if (allEqual(tempFlag)) {
             canvas.style.zIndex = "3";
@@ -170,42 +170,44 @@ function hide() {
 var count = 0;
 
 socket.on('playermove',function(gameInfo){
-    if (gameInfo.flag[gameInfo.y][gameInfo.x].status == 0) {
-        if (gameInfo.turn == 1) {
-            document.getElementById("player").innerHTML = `${gameInfo.player2Name} Turn`;
+    player = gameInfo;
+    console.log(player);
+    if (player.flag[player.y][player.x].status == 0) {
+        if (player.turn == 1) {
+            document.getElementById("player").innerHTML = `${player.playerDetails[1].name} Turn`;
         } else {
-            document.getElementById("player").innerHTML = `${gameInfo.player1Name} Turn`;
+            document.getElementById("player").innerHTML = `${player.playerDetails[0].name} Turn`;
         }
-        document.querySelectorAll(".block")[gameInfo.pos].innerHTML = `<img class="player" src='./img/${avatar}'>`;
-        gameInfo.flag[gameInfo.y][gameInfo.x].status = 1;
-        gameInfo.flag[gameInfo.y][gameInfo.x].avatar = gameInfo.turn;
-        if (checkMove(gameInfo.x, gameInfo.y, gameInfo.turn,gameInfo)) {
+        document.querySelectorAll(".block")[player.pos].innerHTML = `<img class="player" src='./img/${avatar}'>`;
+        player.flag[player.y][player.x].status = 1;
+        player.flag[player.y][player.x].avatar = player.turn;
+        if (checkMove(player.x, player.y, player.turn)) {
             victoryModal(avatar);
             return;
         }
-        if (gameInfo.turn == 1) {
-            gameInfo.turn = 2;
-            avatar = gameInfo.character2;
+        if (player.turn == 1) {
+            player.turn = 2;
+            avatar = player.playerDetails[1].character;
         } else {
-            gameInfo.turn = 1;
-            avatar = gameInfo.character1;
+            player.turn = 1;
+            avatar = player.playerDetails[0].character;
         }
     }
-    gameInfo.count++;
-    if (gameInfo.count == 9) {
+    player.count++;
+    if (player.count == 9) {
         drawModal();
     }
-    flag = gameInfo.flag;
-    turn = gameInfo.turn;
-    count = gameInfo.count;
+    flag = player.flag;
+    turn = player.turn;
+    count = player.count;
 });
 
 function show(x, y, pos) {
-    gameInfo.x = x;
-    gameInfo.y = y;
-    gameInfo.pos = pos;
-    gameInfo.count = count;
-    gameInfo.flag = flag;
-    gameInfo.turn = turn;
-    socket.emit('playermove',gameInfo);
+    player.x = x;
+    player.y = y;
+    player.pos = pos;
+    player.count = count;
+    player.flag = flag;
+    player.turn = turn;
+    socket.emit('playermove',player);
 }

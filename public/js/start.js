@@ -8,11 +8,12 @@ socket.on('launch',function(playerInfo){
   document.getElementById("player").style.display = "block";
     avatar = playerInfo.character1;
     $('#exampleModalCenter').modal('hide');
-    if (playerInfo.layout == "layout1") {
+    let layout = playerInfo.layout;
+    if (layout == "layout1") {
       layoutCreater('yellow','white');
-    } else if (playerInfo.layout == "layout2") {
+    } else if (layout == "layout2") {
       layoutCreater('blue','white');
-    } else if (playerInfo.layout == "layout3") {
+    } else if (layout == "layout3") {
       layoutCreater('red','yellow');
     } else {
       layoutCreater('black','yellow');
@@ -20,11 +21,9 @@ socket.on('launch',function(playerInfo){
 });
 
 document.getElementById("launch").onclick = function () {
-  if (gameInfo.character1 && gameInfo.character2 && gameInfo.layout) {
-    socket.emit('launch',gameInfo);
-    gameInfo.flag = flag;
-    gameInfo.turn = turn;
-    socket.emit('gameplay',gameInfo);
+  if (character1.value != "" && character2.value != "") {
+    socket.emit('launch');
+    socket.emit('gameplay');
   } else
     document.getElementById("showAlert").innerHTML = showErrorMessage();
 }
