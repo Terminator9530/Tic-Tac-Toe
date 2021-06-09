@@ -2,8 +2,6 @@ function start() {
   $('#exampleModalCenter').modal('show');
 }
 
-var socket = io.connect(`${window.location.protocol}//${window.location.hostname}:${window.location.port}/`);
-
 socket.on('launch',function(playerInfo){
   document.getElementById("player").style.display = "block";
     avatar = playerInfo.character1;

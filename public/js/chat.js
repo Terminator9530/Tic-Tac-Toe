@@ -1,5 +1,3 @@
-var socket = io.connect(`${window.location.protocol}//${window.location.hostname}:${window.location.port}/`);
-
 var player1Name = document.getElementById("player1Name");
 var player1Ready = document.getElementById("player1Ready");
 var character1 = document.getElementById("themeLayout").p1;

@@ -45,12 +45,18 @@ io.on('connection',function(socket){
     });
 
     socket.on('playermove',function(player){
-        players = player;
+        players.x = player.x;
+        players.y = player.y;
+        players.pos = player.pos;
+        players.count = player.count;
+        players.flag = player.flag;
+        players.turn = player.turn;
         io.sockets.emit('playermove',players);
     });
 
     socket.on('disconnect',function(){
         console.log('user disconnected');
+        players.deletePlayer(socket.id);
         io.sockets.emit('disconnected',players);
     });
 

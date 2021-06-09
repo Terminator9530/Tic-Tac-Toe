@@ -88,8 +88,8 @@ module.exports = class Players{
     }
 
     deletePlayer(id){
-        this.playerDetails.filter((value)=>{
-            return value.id === id;
+        this.playerDetails = this.playerDetails.filter((value)=>{
+            return value.id !== id;
         });
     }
 
