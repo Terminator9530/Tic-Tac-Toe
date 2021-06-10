@@ -136,7 +136,7 @@ player2Ready.addEventListener('click',function(){
 
 var tWrapper = $("#toast-wrapper"), ti = 0;
 socket.on('disconnected',function(playerInfo){
-    tWrapper.append(toast('User Disconnected',1));
+    tWrapper.append(toast(`${playerInfo.disconnectedPlayer?playerInfo.disconnectedPlayer:'User'} Disconnected`,1));
     $(`#t${ti - 1}`).toast({
         delay: 2000
     });

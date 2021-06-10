@@ -11,10 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/utils.css">
+    <link rel="stylesheet" href="./css/modules/NameInput.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body onload="start()">
+    <div id = "app"></div>
     <!-- Modal -->
     <div data-backdrop="static" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -138,7 +140,24 @@
                                     </div>
                                 </div>
                                 <img src="./img/layout4.png" width="50" height="50">
-                            </div>
+                            </div><br>
+                            <!-- <div id="playerMode">
+                                <p>Player Mode</p>
+                                <div class="pretty p-icon p-round p-jelly">
+                                    <input name="m1" type="radio" value="spm">
+                                    <div class="state p-danger">
+                                        <i class="icon fa fa-check"></i>
+                                        <label>Single Player Mode</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-icon p-round p-jelly">
+                                    <input name="m1" type="radio" value="mpm">
+                                    <div class="state p-danger">
+                                        <i class="icon fa fa-check"></i>
+                                        <label>Multi Player Mode</label>
+                                    </div>
+                                </div>
+                            </div> -->
                         </form>
                     </div>
                 </div>
@@ -152,7 +171,7 @@
     <center>
         <h3 id="player">Player 1 Turn</h3>
     </center>
-    <div class="board">
+    <div class="board" id = "board">
         <div class="row">
             <div class="block" onclick="show(0,0,0)"></div>
             <div class="block" onclick="show(1,0,1)"></div>
@@ -199,6 +218,7 @@
         var socket = io.connect(`${window.location.protocol}//${window.location.hostname}:${window.location.port}/`);
     </script>
     <script src="./js/classes/Players.js"></script>
+    <script src="./js/modules/NameInput.js"></script>
     <script src="./js/utils.js"></script>
     <script src="./js/chat.js"></script>
     <script src="./js/start.js"></script>

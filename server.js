@@ -57,8 +57,15 @@ io.on('connection',function(socket){
 
     socket.on('disconnect',function(){
         console.log('user disconnected');
+        let playerName;
+        players.playerDetails.forEach(element => {
+            if(element.id === socket.id){
+                playerName = element.name;
+            }
+        });
         players.deletePlayer(socket.id);
-        io.sockets.emit('disconnected',players);
+        console.log(playerName);
+        io.sockets.emit('disconnected',{players:players,disconnectedPlayer : playerName});
     });
 
     socket.on('connected',function(){
