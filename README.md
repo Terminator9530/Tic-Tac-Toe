@@ -1,4 +1,4 @@
 # Tic-Tac-Toe
-A Small Game Made using Javascript , Canvas and HTML
+A Small Game Made using Javascript , HTML Canvas , Node JS , Socket.io and HTML
 # Click For Demo
-https://terminator9530.github.io/Tic-Tac-Toe/
+https://tictactoe0306.herokuapp.com/

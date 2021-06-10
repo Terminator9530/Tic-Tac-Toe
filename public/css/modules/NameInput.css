@@ -1,0 +1,22 @@
+.nameInputPanel{
+    height : auto;
+    margin : 50px;
+    background-color: yellow;
+    border-radius : 10px;
+}
+
+.nameForm{
+    margin : 50px;
+}
+
+#playerName{
+    margin-bottom: 10px;
+}
+
+#start{
+    margin-bottom: 10px;
+}
+
+.heading{
+    font-size: 30px;
+}

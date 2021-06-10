@@ -10,9 +10,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/utils.css">
+    <link rel="stylesheet" href="./css/modules/NameInput.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body onload="start()">
+    <div id = "app"></div>
     <!-- Modal -->
     <div data-backdrop="static" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -27,7 +31,10 @@
                     <div id="layout">
                         <form id="themeLayout">
                             <div id="player1">
-                                <p>Player 1</p>
+                                <!-- <p id="player1Name" contenteditable="true">Player 1</p> -->
+                                <input type="text" placeholder="Player 1 Name" id="player1Name">
+                                <button id="player1Ready" type="button" class="btn btn-outline-success">Ready</button>
+                                <br><br>
                                 <div class="pretty p-icon p-round p-jelly">
                                     <input name="p1" type="radio" value="066-Spiderman.png">
                                     <div class="state p-danger">
@@ -62,7 +69,10 @@
                                 <img src="./img/031-clown.png" width="50" height="50">
                             </div><br>
                             <div id="player2">
-                                <p>Player 2</p>
+                                <!-- <p id="player2Name" contenteditable="true">Player 2</p> -->
+                                <input type="text" placeholder="Player 2 Name" id="player2Name">
+                                <button id="player2Ready" type="button" class="btn btn-outline-success">Ready</button>
+                                <br><br>
                                 <div class="pretty p-icon p-round p-jelly">
                                     <input name="p2" type="radio" value="016-lego.png">
                                     <div class="state p-danger">
@@ -130,6 +140,23 @@
                                     </div>
                                 </div>
                                 <img src="./img/layout4.png" width="50" height="50">
+                            </div><br>
+                            <div id="playerMode">
+                                <p>Player Mode</p>
+                                <div class="pretty p-icon p-round p-jelly">
+                                    <input name="m1" type="radio" value="spm">
+                                    <div class="state p-danger">
+                                        <i class="icon fa fa-check"></i>
+                                        <label>Single Player Mode</label>
+                                    </div>
+                                </div>
+                                <div class="pretty p-icon p-round p-jelly">
+                                    <input name="m1" type="radio" value="mpm">
+                                    <div class="state p-danger">
+                                        <i class="icon fa fa-check"></i>
+                                        <label>Multi Player Mode</label>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -144,7 +171,7 @@
     <center>
         <h3 id="player">Player 1 Turn</h3>
     </center>
-    <div class="board">
+    <div class="board" id = "board">
         <div class="row">
             <div class="block" onclick="show(0,0,0)"></div>
             <div class="block" onclick="show(1,0,1)"></div>
@@ -171,6 +198,8 @@
         </center>
         <center style="height:0px;"><canvas id="canvas" width="600" height="600"></canvas></center>
     </div>
+    <div id="toast-wrapper" aria-live="polite" aria-atomic="true" style="position:fixed;bottom:1rem;right:1rem;z-index:1150;">
+    </div>
     <div style="position: absolute;bottom:5px;width:100%;color:white;">
         <center>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>
             from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a><br>
@@ -185,6 +214,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
+    <script>
+        var socket = io.connect(`${window.location.protocol}//${window.location.hostname}:${window.location.port}/`);
+    </script>
+    <script src="./js/classes/Players.js"></script>
+    <script src="./js/modules/NameInput.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/chat.js"></script>
     <script src="./js/start.js"></script>
     <script src="./js/index.js"></script>
 </body>
