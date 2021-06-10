@@ -23,5 +23,5 @@ document.getElementById("launch").onclick = function () {
     socket.emit('launch');
     socket.emit('gameplay');
   } else
-    document.getElementById("showAlert").innerHTML = showErrorMessage();
+    document.getElementById("showAlert").innerHTML = showErrorMessage(`Please Select Player 1, Player 2, Player Mode or Theme`);
 }

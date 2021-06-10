@@ -43,7 +43,7 @@ module.exports = class Players{
         this.pos = pos;
     }
 
-    addPlayer(id,name,character,layout,isPlayerReady,isHost){
+    addPlayer(id,name,character,layout,isPlayerReady,isHost,mode){
         let playerInfo = {};
         if(id != null){
             playerInfo.id = id;
@@ -63,10 +63,13 @@ module.exports = class Players{
         if(isHost != null){
             playerInfo.isHost = isHost;
         }
+        if(mode != null){
+            playerInfo.mode = mode;
+        }
         this.playerDetails.push(playerInfo);
     }
 
-    updatePlayer(id,name,character,layout,isPlayerReady,isHost,playerNo){
+    updatePlayer(id,name,character,layout,isPlayerReady,isHost,playerNo,mode){
         if(id != null){
             this.playerDetails[playerNo].id = id;
         }
@@ -84,6 +87,9 @@ module.exports = class Players{
         }
         if(isHost != null){
             this.playerDetails[playerNo].isHost = isHost;
+        }
+        if(mode != null){
+            this.playerDetails[playerNo].mode = mode;
         }
     }
 
@@ -140,6 +146,15 @@ module.exports = class Players{
         layouts.push(layout1);
         layouts.push(layout2);
         return layouts[Math.floor(Math.random() * layouts.length)];
+    }
+
+    modeChooser(){
+        let modes = [],mode1,mode2;
+        mode1 = this.playerDetails[0].mode;
+        mode2 = this.playerDetails[1].mode;
+        modes.push(mode1);
+        modes.push(mode2);
+        return modes[Math.floor(Math.random() * modes.length)];
     }
 
     makeHost(){

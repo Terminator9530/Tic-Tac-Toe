@@ -13,9 +13,9 @@ function toast(msg, type = 0) {
     </div>`;
 }
 
-function showErrorMessage(){
+function showErrorMessage(message){
     return ` <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    Please Select Player 1, Player 2 or Theme
+    ${message}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>

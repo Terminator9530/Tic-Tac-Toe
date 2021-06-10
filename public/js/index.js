@@ -177,7 +177,7 @@ socket.on('playermove',function(gameInfo){
     player = gameInfo;
     if (player.flag[player.y][player.x].status == 0) {
         let checkMoveVal = checkMove(player.x, player.y, player.turn);
-        if(checkMoveVal == -1){
+        if(player.mode === `mpm` && checkMoveVal == -1){
             let playerName;
             if(player.turn == 1){
                 playerName = player.playerDetails[0].name;

@@ -6,6 +6,8 @@ var player2Name = document.getElementById("player2Name");
 var player2Ready = document.getElementById("player2Ready");
 var character2 = document.getElementById("themeLayout").p2;
 
+var mode = document.getElementById("themeLayout").m1;
+
 var isPlayer1Ready = false,isPlayer2Ready = false;
 
 var layout = document.getElementById("themeLayout").l1;
@@ -51,10 +53,11 @@ player1Ready.addEventListener('click',function(){
         name : player1Name.value,
         isReady : isPlayer1Ready,
         selectedCharacter : character1.value,
-        layout : layout.value
+        layout : layout.value,
+        mode : mode.value
     });
-    if(character1.value == "" || layout.value == ""){
-        document.getElementById("showAlert").innerHTML = showErrorMessage();
+    if(character1.value == "" || layout.value == "" || mode.value == ""){
+        document.getElementById("showAlert").innerHTML = showErrorMessage(`Please Select Player 1, Player 2, Player Mode or Theme`);
     } else {
         if(!isPlayer1Ready){
             //ready
@@ -113,10 +116,11 @@ player2Ready.addEventListener('click',function(){
         name : player2Name.value,
         isReady : isPlayer2Ready,
         selectedCharacter : character2.value,
-        layout : layout.value
+        layout : layout.value,
+        mode : mode.value
     });
-    if(character2.value == "" || layout.value == ""){
-        document.getElementById("showAlert").innerHTML = showErrorMessage();
+    if(character2.value == "" || layout.value == "" || mode.value == ""){
+        document.getElementById("showAlert").innerHTML = showErrorMessage(`Please Select Player 1, Player 2, Player Mode or Theme`);
     } else {
         if(!isPlayer2Ready){
             //ready

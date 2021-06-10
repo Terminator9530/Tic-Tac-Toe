@@ -23,20 +23,21 @@ io.on('connection',function(socket){
     if(isHost === 1){
         players = new Players();
     }
-    players.addPlayer(socket.id,null,null,null,false,isHost === 1);
+    players.addPlayer(socket.id,null,null,null,false,isHost === 1,null);
 
     socket.on('player1Name',function(playerInfo){
-        players.updatePlayer(null,playerInfo.name,playerInfo.selectedCharacter,playerInfo.layout,playerInfo.isReady,null,0);
+        players.updatePlayer(null,playerInfo.name,playerInfo.selectedCharacter,playerInfo.layout,playerInfo.isReady,null,0,playerInfo.mode);
         socket.broadcast.emit('player1Name',players);
     });
 
     socket.on('player2Name',function(playerInfo){
-        players.updatePlayer(null,playerInfo.name,playerInfo.selectedCharacter,playerInfo.layout,playerInfo.isReady,null,1);
+        players.updatePlayer(null,playerInfo.name,playerInfo.selectedCharacter,playerInfo.layout,playerInfo.isReady,null,1,playerInfo.mode);
         socket.broadcast.emit('player2Name',players);
     });
 
     socket.on('launch',function(){
         players.layout = players.layoutChooser();
+        players.mode = players.modeChooser();
         io.sockets.emit('launch',players);
     });
 
