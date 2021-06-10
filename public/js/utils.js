@@ -65,7 +65,7 @@ function drawModal(){
     document.getElementById("vic").classList.add("animateAvatar");
 }
 
-function victoryModal(avatar){
+function victoryModalUpdate(avatar){
     document.getElementById("vic").src = `./img/${avatar}`;
     document.getElementById("pop-up").classList.add("animate");
     document.getElementById("pop-up").style.zIndex = "4";

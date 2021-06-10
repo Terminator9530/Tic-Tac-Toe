@@ -10,8 +10,7 @@ socket.on('gameplay',function(playerInfo){
     document.getElementById("player").innerHTML = `${player.playerDetails[0].name} Turn`;
 });
 
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
+var canvas,ctx;
 var turn = 1,
 flag = [
     [{
@@ -202,7 +201,7 @@ socket.on('playermove',function(gameInfo){
         player.flag[player.y][player.x].status = 1;
         player.flag[player.y][player.x].avatar = player.turn;
         if (checkMove(player.x, player.y) == 1) {
-            victoryModal(avatar);
+            victoryModalUpdate(avatar);
             return;
         }
         if (player.turn == 1) {

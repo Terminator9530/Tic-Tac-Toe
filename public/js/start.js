@@ -3,6 +3,9 @@ function start() {
 }
 
 socket.on('launch',function(playerInfo){
+  document.getElementById(`app`).appendChild(ticTacToeBoard());
+  canvas = document.getElementById("canvas");
+  ctx = canvas.getContext("2d");
   document.getElementById("player").style.display = "block";
     avatar = playerInfo.character1;
     $('#exampleModalCenter').modal('hide');
