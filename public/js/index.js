@@ -1,7 +1,3 @@
-$(function() {
-    $( "#glow" ).draggable();
-});
-
 var player,avatar;
 
 socket.on('gameplay',function(playerInfo){

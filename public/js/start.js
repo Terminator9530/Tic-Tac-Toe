@@ -80,6 +80,9 @@ function start() {
 socket.on('launch',function(playerInfo){
   document.getElementById(`app`).appendChild(playerNameNode());
   document.getElementById(`app`).appendChild(ticTacToeBoard());
+  $(function() {
+    $( "#glow" ).draggable();
+  });
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
   document.getElementById("player").style.display = "block";
