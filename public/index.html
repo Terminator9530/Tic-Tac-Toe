@@ -17,7 +17,7 @@
 
 <body onload="start()">
     <!-- Modal -->
-    <div data-backdrop="static" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+    <!-- <div data-backdrop="static" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -30,12 +30,11 @@
                     <div id="layout">
                         <form id="themeLayout">
                             <div id="player1">
-                                <!-- <p id="player1Name" contenteditable="true">Player 1</p> -->
                                 <input type="text" placeholder="Player 1 Name" id="player1Name">
                                 <button id="player1Ready" type="button" class="btn btn-outline-success">Ready</button>
                                 <br><br>
                                 <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p1" type="radio" value="066-Spiderman.png">
+                                    <input name="p1" type="radio" value="066-Spiderman">
                                     <div class="state p-danger">
                                         <i class="icon fa fa-check"></i>
                                         <label></label>
@@ -43,7 +42,7 @@
                                 </div>
                                 <img src="./img/066-Spiderman.png" width="50" height="50">
                                 <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p1" type="radio" value="063-batman.png">
+                                    <input name="p1" type="radio" value="063-batman">
                                     <div class="state p-danger">
                                         <i class="icon fa fa-check"></i>
                                         <label></label>
@@ -51,7 +50,7 @@
                                 </div>
                                 <img src="./img/063-batman.png" width="50" height="50">
                                 <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p1" type="radio" value="046-santa claus.png">
+                                    <input name="p1" type="radio" value="046-santa claus">
                                     <div class="state p-danger">
                                         <i class="icon fa fa-check"></i>
                                         <label></label>
@@ -59,7 +58,7 @@
                                 </div>
                                 <img src="./img/046-santa claus.png" width="50" height="50">
                                 <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p1" type="radio" value="031-clown.png">
+                                    <input name="p1" type="radio" value="031-clown">
                                     <div class="state p-danger">
                                         <i class="icon fa fa-check"></i>
                                         <label></label>
@@ -68,12 +67,11 @@
                                 <img src="./img/031-clown.png" width="50" height="50">
                             </div><br>
                             <div id="player2">
-                                <!-- <p id="player2Name" contenteditable="true">Player 2</p> -->
                                 <input type="text" placeholder="Player 2 Name" id="player2Name">
                                 <button id="player2Ready" type="button" class="btn btn-outline-success">Ready</button>
                                 <br><br>
                                 <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p2" type="radio" value="016-lego.png">
+                                    <input name="p2" type="radio" value="016-lego">
                                     <div class="state p-danger">
                                         <i class="icon fa fa-check"></i>
                                         <label></label>
@@ -81,7 +79,7 @@
                                 </div>
                                 <img src="./img/016-lego.png" width="50" height="50">
                                 <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p2" type="radio" value="030-scuba diver.png">
+                                    <input name="p2" type="radio" value="030-scuba diver">
                                     <div class="state p-danger">
                                         <i class="icon fa fa-check"></i>
                                         <label></label>
@@ -89,7 +87,7 @@
                                 </div>
                                 <img src="./img/030-scuba diver.png" width="50" height="50">
                                 <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p2" type="radio" value="064-superman.png">
+                                    <input name="p2" type="radio" value="064-superman">
                                     <div class="state p-danger">
                                         <i class="icon fa fa-check"></i>
                                         <label></label>
@@ -97,7 +95,7 @@
                                 </div>
                                 <img src="./img/064-superman.png" width="50" height="50">
                                 <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p2" type="radio" value="070-deadpool.png">
+                                    <input name="p2" type="radio" value="070-deadpool">
                                     <div class="state p-danger">
                                         <i class="icon fa fa-check"></i>
                                         <label></label>
@@ -166,10 +164,10 @@
                 </div>
             </div>
         </div>
-    </div>
-    <center>
+    </div> -->
+    <!-- <center>
         <h3 id="player">Player 1 Turn</h3>
-    </center>
+    </center> -->
     <div id = "app"></div>
     <div id="toast-wrapper" aria-live="polite" aria-atomic="true" style="position:fixed;bottom:1rem;right:1rem;z-index:1150;">
     </div>
@@ -193,6 +191,7 @@
     <script src="./js/classes/Players.js"></script>
     <script src="./js/modules/NameInput.js"></script>
     <script src="./js/modules/FormElements.js"></script>
+    <script src="./js/modules/Modal.js"></script>
     <script src="./js/utils.js"></script>
     <script src="./js/chat.js"></script>
     <script src="./js/start.js"></script>

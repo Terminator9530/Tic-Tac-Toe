@@ -39,9 +39,9 @@ function radioButtonNode(radioName,radioValue,radioLabel){
     return outerDiv;
 }
 
-function imageNode(imgName,extension){
+function imageNode(avatar){
     let imageNode = document.createElement(`img`);
-    imageNode.src = `./img/${imgName}.${extension}`;
+    imageNode.src = `./img/${avatar}.png`;
     imageNode.width = "50";
     imageNode.height = "50";
     return imageNode;

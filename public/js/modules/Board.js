@@ -66,3 +66,13 @@ function blockDiv(x,y,pos){
     }
     return divNode;
 }
+
+function playerNameNode(){
+    let centerNode = document.createElement(`center`);
+    let hNode = document.createElement(`h3`);
+    hNode.id = `player`;
+    let textNode = document.createTextNode(`Player 1 Turn`);
+    hNode.appendChild(textNode);
+    centerNode.appendChild(hNode);
+    return centerNode;
+}

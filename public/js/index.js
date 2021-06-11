@@ -197,7 +197,7 @@ socket.on('playermove',function(gameInfo){
         } else {
             document.getElementById("player").innerHTML = `${player.playerDetails[0].name} Turn`;
         }
-        document.querySelectorAll(".block")[player.pos].innerHTML = `<img class="player" src='./img/${avatar}'>`;
+        document.querySelectorAll(".block")[player.pos].innerHTML = `<img class="player" src='./img/${avatar}.png'>`;
         player.flag[player.y][player.x].status = 1;
         player.flag[player.y][player.x].avatar = player.turn;
         if (checkMove(player.x, player.y) == 1) {

@@ -1,31 +1,21 @@
-var player1Name = document.getElementById("player1Name");
-var player1Ready = document.getElementById("player1Ready");
-var character1 = document.getElementById("themeLayout").p1;
-
-var player2Name = document.getElementById("player2Name");
-var player2Ready = document.getElementById("player2Ready");
-var character2 = document.getElementById("themeLayout").p2;
-
-var mode = document.getElementById("themeLayout").m1;
+var player1Name,player1Ready,character1,player2Name,player2Ready,character2,mode,layout;
 
 var isPlayer1Ready = false,isPlayer2Ready = false;
-
-var layout = document.getElementById("themeLayout").l1;
 
 socket.on('player1Name',function(playerInfo){
     // console.log("Players : ");
     // console.log(playerInfo);
     let isSelected = true;
-    if(playerInfo.playerDetails[0].character == "066-Spiderman.png"){
+    if(playerInfo.playerDetails[0].character == "066-Spiderman"){
         character1[0].checked = "true";
     }
-    else if(playerInfo.playerDetails[0].character == "063-batman.png"){
+    else if(playerInfo.playerDetails[0].character == "063-batman"){
         character1[1].checked = "true";
     }
-    else if(playerInfo.playerDetails[0].character == "046-santa claus.png"){
+    else if(playerInfo.playerDetails[0].character == "046-santa claus"){
         character1[2].checked = "true";
     }
-    else if(playerInfo.playerDetails[0].character == "031-clown.png"){
+    else if(playerInfo.playerDetails[0].character == "031-clown"){
         character1[3].checked = "true";
     } 
     else {
@@ -48,47 +38,20 @@ socket.on('player1Name',function(playerInfo){
     }
 });
 
-player1Ready.addEventListener('click',function(){
-    socket.emit('player1Name',{
-        name : player1Name.value,
-        isReady : isPlayer1Ready,
-        selectedCharacter : character1.value,
-        layout : layout.value,
-        mode : mode.value
-    });
-    if(character1.value == "" || layout.value == "" || mode.value == ""){
-        document.getElementById("showAlert").innerHTML = showErrorMessage(`Please Select Player 1, Player 2, Player Mode or Theme`);
-    } else {
-        if(!isPlayer1Ready){
-            //ready
-            player1Ready.innerHTML = "Not Ready";
-            isPlayer1Ready = true;
-            player1Ready.classList.add("btn-outline-danger");
-            player1Ready.classList.remove("btn-outline-success");
-        } else {
-            //not ready
-            player1Ready.innerHTML = "Ready";
-            isPlayer1Ready = false;
-            player1Ready.classList.add("btn-outline-success");
-            player1Ready.classList.remove("btn-outline-danger");
-        }
-    }
-});
-
 socket.on('player2Name',function(playerInfo){
     // console.log("Players : ");
     // console.log(playerInfo);
     let isSelected = true;
-    if(playerInfo.playerDetails[1].character == "016-lego.png"){
+    if(playerInfo.playerDetails[1].character == "016-lego"){
         character2[0].checked = "true";
     }
-    else if(playerInfo.playerDetails[1].character == "030-scuba diver.png"){
+    else if(playerInfo.playerDetails[1].character == "030-scuba diver"){
         character2[1].checked = "true";
     }
-    else if(playerInfo.playerDetails[1].character == "064-superman.png"){
+    else if(playerInfo.playerDetails[1].character == "064-superman"){
         character2[2].checked = "true";
     }
-    else if(playerInfo.playerDetails[1].character == "070-deadpool.png"){
+    else if(playerInfo.playerDetails[1].character == "070-deadpool"){
         character2[3].checked = "true";
     } 
     else {
@@ -105,33 +68,6 @@ socket.on('player2Name',function(playerInfo){
         } else {
             //not ready
             player2Ready.innerHTML = "Ready";
-            player2Ready.classList.add("btn-outline-success");
-            player2Ready.classList.remove("btn-outline-danger");
-        }
-    }
-});
-
-player2Ready.addEventListener('click',function(){
-    socket.emit('player2Name',{
-        name : player2Name.value,
-        isReady : isPlayer2Ready,
-        selectedCharacter : character2.value,
-        layout : layout.value,
-        mode : mode.value
-    });
-    if(character2.value == "" || layout.value == "" || mode.value == ""){
-        document.getElementById("showAlert").innerHTML = showErrorMessage(`Please Select Player 1, Player 2, Player Mode or Theme`);
-    } else {
-        if(!isPlayer2Ready){
-            //ready
-            player2Ready.innerHTML = "Not Ready";
-            isPlayer2Ready = true;
-            player2Ready.classList.add("btn-outline-danger");
-            player2Ready.classList.remove("btn-outline-success");
-        } else {
-            //not ready
-            player2Ready.innerHTML = "Ready";
-            isPlayer2Ready = false;
             player2Ready.classList.add("btn-outline-success");
             player2Ready.classList.remove("btn-outline-danger");
         }
