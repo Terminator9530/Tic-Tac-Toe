@@ -1,8 +1,11 @@
 .nameInputPanel{
     height : auto;
     margin : 50px;
-    background-color: yellow;
+    background-color: rgb(228, 228, 227);
     border-radius : 10px;
+    width : 40%;
+    min-width : 300px;
+    cursor : move;
 }
 
 .nameForm{
@@ -13,10 +16,16 @@
     margin-bottom: 10px;
 }
 
-#start{
+#joinRoom{
     margin-bottom: 10px;
+    width : 100%;
 }
 
 .heading{
     font-size: 30px;
+}
+
+#createRoom{
+    margin-bottom : 10px;
+    width : 100%;
 }

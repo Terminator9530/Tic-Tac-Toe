@@ -19,20 +19,42 @@ function nameInputPanel(){
     let brNode = document.createElement(`br`);
     formNode.appendChild(brNode);
     formNode.appendChild(bNode);
-    let startButtonNode = document.createElement(`button`);
-    startButtonNode.id = `start`;
-    startButtonNode.type = `button`;
-    startButtonNode.onclick = function(){
-        $('#exampleModalCenter').modal('show');
-        document.getElementById(`board`).style.display = ``;
-        document.getElementById(`app`).removeChild(centerNode);
-    }
-    startButtonNode.classList.add(`btn`,`btn-outline-primary`);
-    let textNode = document.createTextNode(`START`);
-    startButtonNode.appendChild(textNode);
     formNode.appendChild(inputTextNode);
-    formNode.appendChild(startButtonNode);
+    formNode.appendChild(joinRoomButton());
+    brNode = document.createElement(`br`);
+    formNode.appendChild(brNode);
+    formNode.appendChild(createRoomButton());
     divNode.appendChild(formNode);
     centerNode.appendChild(divNode);
     return centerNode;
 }
+
+function joinRoomButton(){
+    let buttonNode = document.createElement(`button`);
+    buttonNode.id = `joinRoom`;
+    buttonNode.type = `button`;
+    buttonNode.onclick = function(){
+        $('#exampleModalCenter').modal('show');
+        document.getElementById(`board`).style.display = ``;
+        document.getElementById(`app`).removeChild(centerNode);
+    }
+    buttonNode.classList.add(`btn`,`btn-success`);
+    let textNode = document.createTextNode(`Join Room`);
+    buttonNode.appendChild(textNode);
+    return buttonNode;
+}
+
+function createRoomButton(){
+    let buttonNode = document.createElement(`button`);
+    buttonNode.id = `createRoom`;
+    buttonNode.type = `button`;
+    buttonNode.classList.add(`btn`,`btn-info`);
+    let textNode = document.createTextNode(`Create Room`);
+    buttonNode.appendChild(textNode);
+    return buttonNode;
+}
+
+// document.body.appendChild(nameInputPanel());
+// $(function() {
+//     $( "#nameInputPanel" ).draggable();
+// });
