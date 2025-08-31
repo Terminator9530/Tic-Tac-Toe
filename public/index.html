@@ -17,187 +17,6 @@
 
 <body onload="start()">
     <div id = "app"></div>
-    <!-- Modal -->
-    <div data-backdrop="static" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Layout Select</h5>
-                </div>
-                <div class="modal-body">
-                    <div id="showAlert">
-                    </div>
-                    <div id="layout">
-                        <form id="themeLayout">
-                            <div id="player1">
-                                <!-- <p id="player1Name" contenteditable="true">Player 1</p> -->
-                                <input type="text" placeholder="Player 1 Name" id="player1Name">
-                                <button id="player1Ready" type="button" class="btn btn-outline-success">Ready</button>
-                                <br><br>
-                                <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p1" type="radio" value="066-Spiderman.png">
-                                    <div class="state p-danger">
-                                        <i class="icon fa fa-check"></i>
-                                        <label></label>
-                                    </div>
-                                </div>
-                                <img src="./img/066-Spiderman.png" width="50" height="50">
-                                <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p1" type="radio" value="063-batman.png">
-                                    <div class="state p-danger">
-                                        <i class="icon fa fa-check"></i>
-                                        <label></label>
-                                    </div>
-                                </div>
-                                <img src="./img/063-batman.png" width="50" height="50">
-                                <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p1" type="radio" value="046-santa claus.png">
-                                    <div class="state p-danger">
-                                        <i class="icon fa fa-check"></i>
-                                        <label></label>
-                                    </div>
-                                </div>
-                                <img src="./img/046-santa claus.png" width="50" height="50">
-                                <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p1" type="radio" value="031-clown.png">
-                                    <div class="state p-danger">
-                                        <i class="icon fa fa-check"></i>
-                                        <label></label>
-                                    </div>
-                                </div>
-                                <img src="./img/031-clown.png" width="50" height="50">
-                            </div><br>
-                            <div id="player2">
-                                <!-- <p id="player2Name" contenteditable="true">Player 2</p> -->
-                                <input type="text" placeholder="Player 2 Name" id="player2Name">
-                                <button id="player2Ready" type="button" class="btn btn-outline-success">Ready</button>
-                                <br><br>
-                                <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p2" type="radio" value="016-lego.png">
-                                    <div class="state p-danger">
-                                        <i class="icon fa fa-check"></i>
-                                        <label></label>
-                                    </div>
-                                </div>
-                                <img src="./img/016-lego.png" width="50" height="50">
-                                <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p2" type="radio" value="030-scuba diver.png">
-                                    <div class="state p-danger">
-                                        <i class="icon fa fa-check"></i>
-                                        <label></label>
-                                    </div>
-                                </div>
-                                <img src="./img/030-scuba diver.png" width="50" height="50">
-                                <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p2" type="radio" value="064-superman.png">
-                                    <div class="state p-danger">
-                                        <i class="icon fa fa-check"></i>
-                                        <label></label>
-                                    </div>
-                                </div>
-                                <img src="./img/064-superman.png" width="50" height="50">
-                                <div class="pretty p-icon p-round p-jelly">
-                                    <input name="p2" type="radio" value="070-deadpool.png">
-                                    <div class="state p-danger">
-                                        <i class="icon fa fa-check"></i>
-                                        <label></label>
-                                    </div>
-                                </div>
-                                <img src="./img/070-deadpool.png" width="50" height="50">
-                            </div><br>
-                            <div id="theme">
-                                <p>Layout</p>
-                                <div class="pretty p-icon p-round p-jelly">
-                                    <input name="l1" type="radio" value="layout1">
-                                    <div class="state p-danger">
-                                        <i class="icon fa fa-check"></i>
-                                        <label></label>
-                                    </div>
-                                </div>
-                                <img src="./img/layout1.png" width="50" height="50">
-                                <div class="pretty p-icon p-round p-jelly">
-                                    <input name="l1" type="radio" value="layout2">
-                                    <div class="state p-danger">
-                                        <i class="icon fa fa-check"></i>
-                                        <label></label>
-                                    </div>
-                                </div>
-                                <img src="./img/layout2.png" width="50" height="50">
-                                <div class="pretty p-icon p-round p-jelly">
-                                    <input name="l1" type="radio" value="layout3">
-                                    <div class="state p-danger">
-                                        <i class="icon fa fa-check"></i>
-                                        <label></label>
-                                    </div>
-                                </div>
-                                <img src="./img/layout3.png" width="50" height="50">
-                                <div class="pretty p-icon p-round p-jelly">
-                                    <input name="l1" type="radio" value="layout4">
-                                    <div class="state p-danger">
-                                        <i class="icon fa fa-check"></i>
-                                        <label></label>
-                                    </div>
-                                </div>
-                                <img src="./img/layout4.png" width="50" height="50">
-                            </div><br>
-                            <div id="playerMode">
-                                <p>Player Mode</p>
-                                <div class="pretty p-icon p-round p-jelly">
-                                    <input name="m1" type="radio" value="spm">
-                                    <div class="state p-danger">
-                                        <i class="icon fa fa-check"></i>
-                                        <label>Single Player Mode</label>
-                                    </div>
-                                </div>
-                                <div class="pretty p-icon p-round p-jelly">
-                                    <input name="m1" type="radio" value="mpm">
-                                    <div class="state p-danger">
-                                        <i class="icon fa fa-check"></i>
-                                        <label>Multi Player Mode</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <center><button id="launch" type="button" class="btn btn-outline-primary"
-                            style="position: relative;right: 190px;">Launch</button></center>
-                </div>
-            </div>
-        </div>
-    </div>
-    <center>
-        <h3 id="player">Player 1 Turn</h3>
-    </center>
-    <div class="board" id = "board">
-        <div class="row">
-            <div class="block" onclick="show(0,0,0)"></div>
-            <div class="block" onclick="show(1,0,1)"></div>
-            <div class="block" onclick="show(2,0,2)"></div>
-        </div>
-        <div class="row">
-            <div class="block" onclick="show(0,1,3)"></div>
-            <div class="block" onclick="show(1,1,4)"></div>
-            <div class="block" onclick="show(2,1,5)"></div>
-        </div>
-        <div class="row">
-            <div class="block" onclick="show(0,2,6)"></div>
-            <div class="block" onclick="show(1,2,7)"></div>
-            <div class="block" onclick="show(2,2,8)"></div>
-        </div>
-        <center>
-            <div id="pop-up">
-                <div class="container1" id="glow">
-                    <h1 id="res">Victory</h1>
-                    <img id="vic" style="width:50px;height:50px;border-radius:0;margin:0;">
-                    <div class="cross" onclick="hide()"><i class="fa fa-times"></i></div>
-                </div>
-            </div>
-        </center>
-        <center style="height:0px;"><canvas id="canvas" width="600" height="600"></canvas></center>
-    </div>
     <div id="toast-wrapper" aria-live="polite" aria-atomic="true" style="position:fixed;bottom:1rem;right:1rem;z-index:1150;">
     </div>
     <div style="position: absolute;bottom:5px;width:100%;color:white;">
@@ -219,10 +38,13 @@
     </script>
     <script src="./js/classes/Players.js"></script>
     <script src="./js/modules/NameInput.js"></script>
+    <script src="./js/modules/FormElements.js"></script>
+    <script src="./js/modules/Modal.js"></script>
     <script src="./js/utils.js"></script>
     <script src="./js/chat.js"></script>
     <script src="./js/start.js"></script>
     <script src="./js/index.js"></script>
+    <script src="./js/modules/Board.js"></script>
 </body>
 
 </html>
